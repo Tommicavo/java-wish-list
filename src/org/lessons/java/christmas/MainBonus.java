@@ -1,6 +1,8 @@
 package org.lessons.java.christmas;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,6 +30,7 @@ public class MainBonus {
 					ChristmasGift newGift = new ChristmasGift(gift, receiver);
 					gifts.add(newGift);
 				} else if (answer.equals("n")) {
+					Collections.sort(gifts, Comparator.comparing(ChristmasGift::getGift));
 					System.out.println("Here's your Christmas gift list:");
 					for (int i = 0; i < gifts.size(); i++) {
 						System.out.println((i + 1) + "- " + gifts.get(i).toString());
